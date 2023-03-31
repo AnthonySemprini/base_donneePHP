@@ -16,7 +16,7 @@ ob_start();
     // Si tout va bien on peut continuer
 
     // On recupere tt le contenue de la table film
-    $listeFilms = $mysqlConnection->prepare('SELECT f.titre, DATE_FORMAT( SEC_TO_TIME(f.dureeMinutes*60) , "%H:%i") AS dureeHeureMinutes, p.nom, f.anneeSortie
+    $listeFilms = $mysqlConnection->prepare('SELECT f.id_film, f.titre, DATE_FORMAT( SEC_TO_TIME(f.dureeMinutes*60) , "%H:%i") AS dureeHeureMinutes, p.nom, f.anneeSortie
 FROM film f 
 INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur 
 INNER JOIN personne p ON r.id_personne = p.id_personne
@@ -42,7 +42,7 @@ INNER JOIN personne p ON r.id_personne = p.id_personne
         ?>
             <tbody>
                 <tr>
-                    <td><?= $film['titre']; ?></td>
+                    <td><a href="detail.php?&id=<?= $film['id_film']?>"><?= $film['titre']; ?></a></td>
                     <td><?= $film["dureeHeureMinutes"]; ?></td>
                     <td><?= $film['nom']; ?></td>
                     <td><?= $film['anneeSortie']; ?></td>
