@@ -56,5 +56,6 @@ INNER JOIN personne p ON r.id_personne = p.id_personne
 
     <?php
 $content = ob_get_clean();
+$titre = "Film";
 require "template.php";
 ?>

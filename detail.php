@@ -18,5 +18,6 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
+$titre = "Detail";
 require "template.php";
 ?>

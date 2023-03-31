@@ -54,5 +54,6 @@ INNER JOIN personne p ON a.id_personne = p.id_personne
 
     <?php
 $content = ob_get_clean();
+$titre = "Realisateur";
 require "template.php";
 ?>
