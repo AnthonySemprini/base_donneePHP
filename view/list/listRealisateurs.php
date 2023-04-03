@@ -33,5 +33,5 @@ ob_start();
 $content = ob_get_clean();
 $titre ="Realisateurs";
 $titre_secondaire = "Liste des realisateurs";
-require "template.php";
+require "view/template.php";
 ?>

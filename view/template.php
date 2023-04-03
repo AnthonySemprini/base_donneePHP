@@ -18,6 +18,8 @@
             <a href="index.php?action=listFilms">Film</a>
             <a href="index.php?action=listActeurs">Acteur</a>
             <a href="index.php?action=listRealisateurs">Réalisateur</a>
+            <a href="index.php?action=listGenres">Genre</a>
+            <a href="index.php?action=listRoles">Role</a>
         </nav>
     </header>
     <div id="wrapper">

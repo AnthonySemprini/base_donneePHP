@@ -16,7 +16,7 @@ class CinemaController{
             FROM film
         ");
 
-        require "view/listFilms.php";
+        require "view/list/listFilms.php";
     }
 
     public function listActeurs(){
@@ -28,7 +28,7 @@ class CinemaController{
             INNER JOIN personne p ON a.id_personne = p.id_personne
         ");
 
-        require "view/listActeurs.php";
+        require "view/list/listActeurs.php";
     }
 
     public function listRealisateurs(){
@@ -40,6 +40,28 @@ class CinemaController{
             INNER JOIN personne p ON r.id_personne = p.id_personne
         ");
 
-        require "view/listRealisateurs.php";
+        require "view/list/listRealisateurs.php";
+    }
+
+    public function listGenres(){
+
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query("
+            SELECT g.id_genre, g.nomGenre
+            FROM genre g
+        ");
+
+        require "view/list/listGenres.php";
+    }
+
+    public function listRoles(){
+
+        $pdo = Connect::seConnecter();
+        $requete = $pdo->query("
+            SELECT r.id_role, r.nomRole
+            FROM role r
+        ");
+
+        require "view/list/listRoles.php";
     }
 }

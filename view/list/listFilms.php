@@ -33,5 +33,5 @@ ob_start();
 $titre = "Listes des films";
 $titre_secondaire = "Liste des films";
 $content = ob_get_clean();
-require "template.php";
+require "view/template.php";
 ?>

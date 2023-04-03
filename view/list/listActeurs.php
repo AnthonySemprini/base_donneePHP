@@ -33,5 +33,5 @@ ob_start();
 $content = ob_get_clean();
 $titre ="Acteur";
 $titre_secondaire = "Liste des acteurs";
-require "template.php";
+require "view/template.php";
 ?>
