@@ -15,13 +15,20 @@
         <p>“La photographie, c'est la vérité et le cinéma, c'est vingt-quatre fois la vérité par seconde...”</p>
         <p>J.L. Godart</p>
         <nav>
-            <a href="FILM.php">Film</a>
-            <a href="ACTEUR.php">Acteur</a>
-            <a href="REALISATEUR.php">Réalisateur</a>
-            <a href="Detail.php">Detail</a>
+            <a href="index.php?action=listFilms">Film</a>
+            <a href="index.php?action=listActeurs">Acteur</a>
+            <a href="index.php?action=listRealisateurs">Réalisateur</a>
         </nav>
     </header>
-    <?= $content ?>
+    <div id="wrapper">
+        <main>
+            <div id="container">
+                <h1>PDO Cinema</h1>
+                <h2><?= $titre_secondaire ?></h2>
+                <?= $content ?>
+            </div>
+        </main>
+    </div>
 
 </body>
 
