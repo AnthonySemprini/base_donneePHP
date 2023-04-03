@@ -14,6 +14,7 @@ class CinemaController{
         $requete = $pdo->query("
             SELECT id_film, titre, anneeSortie
             FROM film
+            ORDER BY anneeSortie DESC
         ");
 
         require "view/list/listFilms.php";
@@ -26,6 +27,7 @@ class CinemaController{
             SELECT a.id_acteur, p.nom AS Nom, p.prenom AS Prenom, p.DateNaissance AS Date_de_naissance
             FROM acteur a
             INNER JOIN personne p ON a.id_personne = p.id_personne
+            ORDER BY p.nom, p.prenom
         ");
 
         require "view/list/listActeurs.php";
@@ -38,6 +40,7 @@ class CinemaController{
             SELECT r.id_realisateur, p.nom AS Nom, p.prenom AS Prenom, p.DateNaissance AS Date_de_naissance
             FROM realisateur r
             INNER JOIN personne p ON r.id_personne = p.id_personne
+            ORDER BY p.nom, p.prenom
         ");
 
         require "view/list/listRealisateurs.php";
@@ -49,6 +52,7 @@ class CinemaController{
         $requete = $pdo->query("
             SELECT g.id_genre, g.nomGenre
             FROM genre g
+            ORDER BY g.nomGenre
         ");
 
         require "view/list/listGenres.php";
@@ -58,8 +62,9 @@ class CinemaController{
 
         $pdo = Connect::seConnecter();
         $requete = $pdo->query("
-            SELECT r.id_role, r.nomRole
-            FROM role r
+            SELECT ro.id_role, ro.nomRole
+            FROM role ro
+            ORDER BY ro.nomRole
         ");
 
         require "view/list/listRoles.php";

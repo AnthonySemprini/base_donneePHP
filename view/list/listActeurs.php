@@ -2,7 +2,7 @@
 ob_start();
 ?>
    
-   <p><p>Il y a <?= $requete->rowCount() ?> acteurs</p></p>
+   <p>Il y a <?= $requete->rowCount() ?> acteurs</p>
     
    
     <table>
