@@ -19,7 +19,7 @@ ob_start();
             ?>
             <tbody>
                 <tr>
-                    <td><a href='detail.php?id=<?= $film['id_film']; ?>'><?= $film['titre']; ?></a></td>
+                    <td><a href='index.php?action=detailFilm&id=<?= $film['id_film']; ?>'><?= $film['titre']; ?></a></td>
                     <td><?= $film['anneeSortie']; ?></td>
                 </tr>
             </tbody>
