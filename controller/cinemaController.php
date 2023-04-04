@@ -105,4 +105,36 @@ class CinemaController{
 
         require "view/detail/detailrealisateur.php";
     }
+
+    public function detailGenre($id){
+        $pdo = Connect:: seConnecter();
+        $requeteGenre = $pdo->prepare("SELECT g.nomGenre, f.titre
+        FROM genre g
+        INNER JOIN classer c ON g.id_genre = c.id_genre
+        INNER JOIN film f ON c.id_film = f.id_film
+        WHERE g.id_genre = :id
+       
+        ");
+        $requeteGenre->execute(["id"=>$id]);
+
+        require "view/detail/detailGenre.php";
+    }
+
+    public function detailRole($id){
+        $pdo = Connect:: seConnecter();
+        $requeteRole = $pdo->prepare("SELECT r.nomRole, p.prenom, p.nom, f.titre
+        FROM role r
+        INNER JOIN casting c ON r.id_role = c.id_role
+        INNER JOIN acteur a ON c.id_acteur = a.id_acteur
+        INNER JOIN personne p ON a.id_personne = p.id_personne
+        INNER JOIN film f ON c.id_film = f.id_film
+
+
+        WHERE r.id_role = :id
+       
+        ");
+        $requeteRole->execute(["id"=>$id]);
+
+        require "view/detail/detailRole.php";
+    }
 }

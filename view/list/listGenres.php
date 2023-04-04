@@ -18,7 +18,7 @@ ob_start();
             ?>
             <tbody>
                 <tr>
-                    <td><a href='detail.php?id=<?= $genre['id_genre']; ?>'><?= $genre['nomGenre']; ?></a></td>
+                    <td><a href='index.php?action=detailGenre&id=<?= $genre['id_genre']; ?>'><?= $genre['nomGenre']; ?></a></td>
                 </tr>
             </tbody>
         <?php
