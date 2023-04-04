@@ -8,7 +8,7 @@ $film = $requeteFilm->fetch();
 
 $casting = $requeteCasting->fetchAll();
     foreach($casting as $cast){
-        echo " ".$cast["nom"]." ".$cast["prenom"]." dans le role de ".$cast["nomRole"];
+        echo " ".$cast["prenom"]." ".$cast["nom"]." dans le role de ".$cast["nomRole"]."<br>";
     }
 ?>
 

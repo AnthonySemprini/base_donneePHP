@@ -81,4 +81,16 @@ class CinemaController{
                 
         require "view/detail/detailFilm.php";
     }
+
+    public function detailActeur($id){
+        $pdo = Connect:: seConnecter();
+        $requeteActeur = $pdo->prepare("SELECT p.prenom, p.nom, ROUND(DATEDIFF( NOW(), p.DateNaissance)/365) AS age, p.sexe
+        FROM acteur a
+        INNER JOIN personne p ON a.id_personne = p.id_personne 
+        WHERE id_acteur = :id
+        ");
+        $requeteActeur->execute(["id"=>$id]);
+
+        require "view/detail/detailActeur.php";
+    }
 }
