@@ -4,16 +4,16 @@ ob_start();
 
 <?php
 
-$genres = $requeteGenre->fetchAll();
+$genres = $requeteGenre->fetchAll(); 
     foreach($genres as $genre){
-        echo $genre["nomGenre"]." ".$genre["titre"]."<br>";
+        echo $genre["titre"]."<br>";
     }
 ?>
 
 
 <?php
 $content = ob_get_clean();
-$titre = "Detail genre";
-$titre_secondaire = "Detail genre";
+$titre = $genre['nomGenre'];
+$titre_secondaire = "Les films de genre : ".$genre['nomGenre'];
 require "view/template.php";
 ?>
