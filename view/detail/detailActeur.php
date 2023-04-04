@@ -13,7 +13,7 @@ $acteurs = $requeteActeur->fetchAll();
 
 <?php
 $content = ob_get_clean();
-$titre = "Detail acteur et actrice";
-$titre_secondaire = "Detail acteur et actrice";
+$titre = "Detail acteur";
+$titre_secondaire = "Detail acteur";
 require "view/template.php";
 ?>

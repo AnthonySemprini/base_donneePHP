@@ -19,8 +19,8 @@ ob_start();
         ?>
             <tbody>
                 <tr>
-                    <td><a href='detail.php?id=<?= $realisateur['id_acteur'];?>'><?= $realisateur['Nom'];?></a></td>
-                    <td><a href='detail.php?id=<?= $realisateur['id_acteur'];?>'><?= $realisateur['Prenom'];?></a></td>
+                    <td><a href='index.php?action=detailRealisateur&id=<?= $realisateur['id_realisateur'];?>'><?= $realisateur['Nom'];?></a></td>
+                    <td><a href='index.php?action=detailRealisateur&id=<?= $realisateur['id_realisateur'];?>'><?= $realisateur['Prenom'];?></a></td>
                     <td><?= $realisateur['Date_de_naissance']; ?></td>
             </tbody>
         <?php
