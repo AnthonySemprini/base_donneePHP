@@ -6,7 +6,13 @@ ob_start();
 
 $acteurs = $requeteActeur->fetchAll();
     foreach($acteurs as $acteur){
-        echo " ".$acteur["prenom"]." ".$acteur["nom"]." est une ".$acteur["sexe"]." de ".$acteur['age']." ans ";
+        echo " ".$acteur["prenom"]." ".$acteur["nom"]." est une ".$acteur["sexe"]." de ".$acteur['age']." ans, ";
+    }
+
+$filmActeurs = $requeteFilmo->fetchAll();
+echo " qui a joué dans :<br>";
+    foreach($filmActeurs as $filmActeur){
+        echo $filmActeur["titre"]."<br>";
     }
 ?>
 

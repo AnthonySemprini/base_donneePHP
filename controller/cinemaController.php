@@ -78,19 +78,25 @@ class CinemaController{
         INNER JOIN personne p ON a.id_personne = p.id_personne
         WHERE id_film = :id");
         $requeteCasting->execute(["id"=>$id]);
-                
+               
         require "view/detail/detailFilm.php";
     }
 
     public function detailActeur($id){
         $pdo = Connect:: seConnecter();
         $requeteActeur = $pdo->prepare("SELECT p.prenom, p.nom, ROUND(DATEDIFF( NOW(), p.DateNaissance)/365) AS age, p.sexe
-        FROM acteur a
+        FROM acteur a 
         INNER JOIN personne p ON a.id_personne = p.id_personne 
         WHERE id_acteur = :id
         ");
         $requeteActeur->execute(["id"=>$id]);
 
+        $requeteFilmo = $pdo->prepare("SELECT f.titre, f.anneeSortie
+        FROM film f
+        INNER JOIN casting c ON f.id_film = c.id_film
+        WHERE id_acteur = :id");
+
+        $requeteFilmo->execute(["id"=>$id]);
         require "view/detail/detailActeur.php";
     }
 
@@ -102,6 +108,12 @@ class CinemaController{
         WHERE id_realisateur = :id
         ");
         $requeteRealisateur->execute(["id"=>$id]);
+
+        $requeteFilmoReal = $pdo->prepare("SELECT f.titre, f.anneeSortie
+        FROM film f
+        INNER JOIN casting c ON f.id_film = c.id_film
+        WHERE id_realisateur = :id");
+        $requeteFilmoReal->execute(["id"=>$id]);
 
         require "view/detail/detailrealisateur.php";
     }

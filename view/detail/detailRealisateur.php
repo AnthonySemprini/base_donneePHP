@@ -8,6 +8,12 @@ $realisateurs = $requeteRealisateur->fetchAll();
     foreach($realisateurs as $realisateur){
         echo " ".$realisateur["prenom"]." ".$realisateur["nom"]." est une ".$realisateur["sexe"]." de ".$realisateur['age']." ans ";
     }
+
+    $filmRealisateurs = $requeteFilmoReal->fetchAll();
+echo " qui a réalisé :<br>";
+    foreach($filmRealisateurs as $filmRealisateur){
+        echo $filmRealisateur["titre"]."<br>";
+    }
 ?>
 
 
