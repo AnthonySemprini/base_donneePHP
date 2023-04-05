@@ -111,7 +111,6 @@ class CinemaController{
 
         $requeteFilmoReal = $pdo->prepare("SELECT f.titre, f.anneeSortie
         FROM film f
-        INNER JOIN casting c ON f.id_film = c.id_film
         WHERE id_realisateur = :id");
         $requeteFilmoReal->execute(["id"=>$id]);
 
