@@ -5,15 +5,19 @@ ob_start();
 <?php
 
 $roles = $requeteRole->fetchAll();
-    foreach($roles as $role){
-        echo $role["nomRole"]." est joué par ".$role["prenom"]." ".$role["nom"]." dans ".$role['titre']."<br>";
-    }
 ?>
-
-
+    <p>est joué par : </p>
 <?php
+    foreach($roles as $role){
+        ?>
+
+       <p><a href='index.php?action=detailActeur&id=<?= $role['id_acteur'];?>'><?= $role['nom'];?></a> dans 
+       <a href='index.php?action=detailFilm&id=<?= $role['id_role']; ?>'><?= $role['titre']; ?></a></p><br>
+
+  <?php  }
+
 $content = ob_get_clean();
-$titre = "Detail role";
-$titre_secondaire = "Detail role";
+$titre = $role['nomRole'];
+$titre_secondaire = $role['nomRole'];
 require "view/template.php";
 ?>

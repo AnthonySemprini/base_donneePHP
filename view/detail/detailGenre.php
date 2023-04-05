@@ -6,12 +6,13 @@ ob_start();
 
 $genres = $requeteGenre->fetchAll(); 
     foreach($genres as $genre){
-        echo $genre["titre"]."<br>";
-    }
-?>
+        ?>
 
+      
+      <a href='index.php?action=detailFilm&id=<?= $genre['id_film']; ?>'><?= $genre['titre']; ?></a><br>
 
-<?php
+   <?php  }
+
 $content = ob_get_clean();
 $titre = $genre['nomGenre'];
 $titre_secondaire = "Les films de genre : ".$genre['nomGenre'];
