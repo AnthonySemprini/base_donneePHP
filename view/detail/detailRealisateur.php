@@ -6,18 +6,23 @@ ob_start();
 
 $realisateurs = $requeteRealisateur->fetchAll();
     foreach($realisateurs as $realisateur){
-        echo " ".$realisateur["prenom"]." ".$realisateur["nom"]." est une ".$realisateur["sexe"]." de ".$realisateur['age']." ans ";
-    }
+        ?>
+        <p> <?=$realisateur["prenom"]." ".$realisateur["nom"]?> est une <?=$realisateur["sexe"]?> de <?=$realisateur['age']?>ans </p>
+
+
+   <?php }
 
     $filmRealisateurs = $requeteFilmoReal->fetchAll();
-echo " qui a réalisé :<br>";
+echo "Filmographie :<br>";
     foreach($filmRealisateurs as $filmRealisateur){
-        echo $filmRealisateur["titre"]."<br>";
-    }
-?>
+        ?>
 
+         
+         <a href='index.php?action=detailFilm&id=<?= $filmRealisateur['id_film']; ?>'><?= $filmRealisateur['titre']; ?></a><br>
+    
+    
+    <?php }
 
-<?php
 $content = ob_get_clean();
 $titre = "Detail realisateur";
 $titre_secondaire = "Detail realisateur";
