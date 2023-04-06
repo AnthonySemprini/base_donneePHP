@@ -7,12 +7,12 @@ $films = $requeteFilm->fetchAll();
     foreach($films as $film){
         ?>
 
-        <h2><?= $film['titre'] ?></h2><p> Note : <?= $film['note'] ?> /5 </p>
+        <p> Note : <?= $film['note'] ?> /5 </p>
         <p>Annee sortie : <?= $film['anneeSortie'] ?></p>
         <p>Durée : <?= $film['dureeMinutes'] ?></p>
         <img src="<?=$film['affiche'] ?>" alt="affiche">
         <p><?= $film['synopsis'] ?></p>
-        <p><?= $film['prenom'] ?> <a href='index.php?action=detailActeur&id=<?= $film['id_realisateur'];?>'><?= $film['nom'];?></a> </p>
+        <p> <a href='index.php?action=detailRealisateur&id=<?= $film['id_realisateur'];?>'><?= $film['nomReal'];?></a> </p>
         
 
     <?php ;} ?>
@@ -37,7 +37,7 @@ $casting = $requeteCasting->fetchAll();
 
 <?php
 $content = ob_get_clean();
-$titre = "Detail film";
-$titre_secondaire = "Detail film";
+$titre = $film['titre'];
+$titre_secondaire = $film['titre'];
 require "view/template.php";
 ?>

@@ -12,7 +12,7 @@ $roles = $requeteRole->fetchAll();
         ?>
 
        <p><a href='index.php?action=detailActeur&id=<?= $role['id_acteur'];?>'><?= $role['nom'];?></a> dans 
-       <a href='index.php?action=detailFilm&id=<?= $role['id_role']; ?>'><?= $role['titre']; ?></a></p><br>
+       <a href='index.php?action=detailFilm&id=<?= $role['id_film']; ?>'><?= $role['titre']; ?></a></p><br>
 
   <?php  }
 

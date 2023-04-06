@@ -2,14 +2,10 @@
 ob_start();
 ?>
 
+
 <?php
-
-
-
-
-
-$content = ob_get_clean();
 $titre = "Form genre";
 $titre_secondaire = "Form Genre";
+$content = ob_get_clean();
 require "view/template.php";
 ?>

@@ -7,7 +7,7 @@ ob_start();
 $realisateurs = $requeteRealisateur->fetchAll();
     foreach($realisateurs as $realisateur){
         ?>
-        <p> <?=$realisateur["prenom"]." ".$realisateur["nom"]?> est une <?=$realisateur["sexe"]?> de <?=$realisateur['age']?>ans </p>
+        <p>est une <?=$realisateur["sexe"]?> de <?=$realisateur['age']?>ans </p>
 
 
    <?php }
@@ -24,7 +24,7 @@ echo "Filmographie :<br>";
     <?php }
 
 $content = ob_get_clean();
-$titre = "Detail realisateur";
-$titre_secondaire = "Detail realisateur";
+$titre = $realisateur["prenom"]." ".$realisateur["nom"];
+$titre_secondaire = $realisateur["prenom"]." ".$realisateur["nom"];
 require "view/template.php";
 ?>
