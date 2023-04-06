@@ -9,7 +9,6 @@ ob_start();
         <thead>
             <tr>
                 <th>Nom</th>
-                <th>Prénom</th>
                 <th>Date de naissance</th>
             </tr>
         </thead>
@@ -19,8 +18,8 @@ ob_start();
         ?>
             <tbody>
                 <tr>
-                    <td><a href='index.php?action=detailActeur&id=<?= $acteur['id_acteur'];?>'><?= $acteur['Nom'];?></a></td>
-                    <td><a href='index.php?action=detailActeur&id=<?= $acteur['id_acteur'];?>'><?= $acteur['Prenom'];?></a></td>
+                    <td><a href='index.php?action=detailActeur&id=<?= $acteur['id_acteur'];?>'><?= $acteur['nom'];?></a></td>
+                    
                     <td><?= $acteur['Date_de_naissance']; ?></td>
             </tbody>
         <?php

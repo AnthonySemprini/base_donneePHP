@@ -27,18 +27,20 @@ class CinemaController{
         FROM film f 
         INNER JOIN realisateur r ON f.id_realisateur = r.id_realisateur
         INNER JOIN personne p ON r.id_personne = p.id_personne
-        WHERE id_film = :id");
+        LEFT JOIN classer c ON f.id_film = c.id_film
+        LEFT JOIN genre g ON c.id_genre = g.id_genre
+        WHERE f.id_film = :id");
         $requeteFilm->execute(["id"=>$id]);
 
-        $requeteCasting = $pdo->prepare("SELECT *
+        $requeteCasting = $pdo->prepare("SELECT *,CONCAT(p.prenom,' ',p.nom) AS nom
         FROM casting c
         INNER JOIN role r ON c.id_role = r.id_role
         INNER JOIN acteur a ON c.id_acteur = a.id_acteur 
-
         INNER JOIN personne p ON a.id_personne = p.id_personne
         WHERE id_film = :id");
         $requeteCasting->execute(["id"=>$id]);
-               
+        
+
         require "view/detail/detailFilm.php";
     }
 
@@ -49,7 +51,7 @@ class CinemaController{
     public function listActeurs(){
 
         $pdo = Connect::seConnecter();
-        $requete = $pdo->query("SELECT a.id_acteur, p.nom AS Nom, p.prenom AS Prenom, p.DateNaissance AS Date_de_naissance
+        $requete = $pdo->query("SELECT a.id_acteur, CONCAT(p.prenom,' ' ,p.nom) AS nom, p.DateNaissance AS Date_de_naissance
             FROM acteur a
             INNER JOIN personne p ON a.id_personne = p.id_personne
             ORDER BY p.nom, p.prenom
@@ -83,7 +85,7 @@ class CinemaController{
     public function listRealisateurs(){
 
         $pdo = Connect::seConnecter();
-        $requete = $pdo->query("SELECT r.id_realisateur, p.nom AS Nom, p.prenom AS Prenom, p.DateNaissance AS Date_de_naissance
+        $requete = $pdo->query("SELECT r.id_realisateur,CONCAT(p.prenom,' ' ,p.nom) AS nom, p.DateNaissance AS Date_de_naissance
             FROM realisateur r
             INNER JOIN personne p ON r.id_personne = p.id_personne
             ORDER BY p.nom, p.prenom
@@ -160,7 +162,7 @@ class CinemaController{
 
     public function detailRole($id){
         $pdo = Connect:: seConnecter();
-        $requeteRole = $pdo->prepare("SELECT *
+        $requeteRole = $pdo->prepare("SELECT *, CONCAT(p.prenom,' ' ,p.nom) AS nom
         FROM role r
         INNER JOIN casting c ON r.id_role = c.id_role
         INNER JOIN acteur a ON c.id_acteur = a.id_acteur

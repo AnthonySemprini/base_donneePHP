@@ -4,15 +4,15 @@ ob_start();
 
 <?php
 
-$acteurs = $requeteActeur->fetchAll();
-    foreach($acteurs as $acteur){
+$acteur = $requeteActeur->fetchAll();
+    
         ?>
 
-       <p> est une <?= $acteur["sexe"] ?> de <?= $acteur['age']?> ans</p>
+       <p> est une <?= $acteur[0]["sexe"] ?> de <?= $acteur[0]['age']?> ans</p>
 
-<?php ;} 
+ 
 
-
+<?php
 $filmActeurs = $requeteFilmo->fetchAll();
         ?>
 
@@ -28,7 +28,7 @@ $filmActeurs = $requeteFilmo->fetchAll();
     <?php ;}
 
 $content = ob_get_clean();
-$titre = $acteur['prenom']." ".$acteur['nom'];
-$titre_secondaire = $acteur['prenom']." ".$acteur['nom'];
+$titre = $acteur[0]['prenom']." ".$acteur[0]['nom'];
+$titre_secondaire = $acteur[0]['prenom']." ".$acteur[0]['nom'];
 require "view/template.php";
 ?>
