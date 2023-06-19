@@ -1,5 +1,6 @@
 <?php
 ob_start();
+
 ?>
 
     <p>Il y a <?= $requete->rowCount() ?> genres</p>
@@ -24,8 +25,11 @@ ob_start();
         <?php
         }
         ?>
+       
     </table>
+    <button><a href="index.php?action=formGenre">Ajouter genre</a></button>
 
+    
 
     <?php
 $titre = "Listes des genres";

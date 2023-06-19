@@ -42,8 +42,8 @@ if(isset($_GET['action'])){
         case "detailRole": $ctrlCinema->detailRole($id); 
             break;
             
-        // case "formGenre": $ctrlCinema->formGenre($genre);
-        //     break;
+        case "formGenre": $ctrlCinema->formGenre();
+            break;
     
 
     }       

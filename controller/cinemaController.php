@@ -140,7 +140,16 @@ class CinemaController{
 
         require "view/detail/detailGenre.php";
     }
+    public function formGenre(){
+        require "view/form/formGenre.php";
+     }
 
+    public function formAjoutGenre($nomGenre){
+        $pdo = Connect:: seConnecter();
+        $requetAjouterGenre = $pdo->prepare("INSERT INTO Genre (nomgenre)
+        VALUES(:nomGenre)");
+        $nomGenre->execute( ["nomGenre"=> $nomGenre] );
+    }
     
 
 
