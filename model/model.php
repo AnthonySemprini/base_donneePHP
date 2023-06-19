@@ -4,10 +4,10 @@ namespace Model;
 
 abstract class Connect {
 
-    const HOST = "localhost";
-    const DB = "cinema_anthony";
+    const HOST = "Localhost";
+    const DB = "cinema";
     const USER = "root";
-    const PASS = "root";
+    const PASS = null;
 
     public static function seConnecter(){
         try{
