@@ -33,15 +33,28 @@ class GenreController{
         require "view/detail/GenreDetail.php";
     }
     public function formGenre(){
-        require "view/form/GenreForm.php";
+        
      }
 
-    public function formAjoutGenre($nomGenre){
+    public function formAjoutGenre(){
         $pdo = Connect:: seConnecter();
-        $requetAjouterGenre = $pdo->prepare("INSERT INTO Genre (nomgenre)
-        VALUES(:nomGenre)");
-        $nomGenre->execute( ["nomGenre"=> $nomGenre] );
-    }
+      
+        if(isset($_POST["submit"])){//verifie si champ et remplie
+            $nomGenre = filter_input(INPUT_POST, "nomGenre", FILTER_SANITIZE_FULL_SPECIAL_CHARS);//verifie si il n'y a pas de caracthére spe
+            
+            if($nomGenre) {
+                // var_dump("ok");die;
+                $requetAjouterGenre = $pdo->prepare("INSERT INTO Genre (nomGenre) VALUES(:nomGenre)");//ajoute le genre saisie dans le form
+                $requetAjouterGenre->execute(["nomGenre"=> $nomGenre]);
+                header('Location:index.php?action=listGenres');
+            
+            }else{
+                echo " Veuillez remplir le champs";
+            }
+        }
+
+        require "view/form/GenreForm.php";
+    }   
 }   
 
 

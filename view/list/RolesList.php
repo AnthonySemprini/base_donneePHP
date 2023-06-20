@@ -25,6 +25,7 @@ ob_start();
         }
         ?>
     </table>
+    <button><a href="index.php?action=formRole">Ajouter role</a></button>
 
 
     <?php

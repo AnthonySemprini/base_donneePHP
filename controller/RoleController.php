@@ -37,4 +37,24 @@ class RoleController{
 
         require "view/detail/RoleDetail.php";
     }
+
+      public function formAjoutRole(){
+        $pdo = Connect:: seConnecter();
+      
+        if(isset($_POST["submit"])){//verifie si champ et remplie
+            $nomRole = filter_input(INPUT_POST, "nomRole", FILTER_SANITIZE_FULL_SPECIAL_CHARS);//verifie si il n'y a pas de caracthére spe
+            
+            if($nomRole) {
+                // var_dump("ok");die;
+                $requetAjouterRole = $pdo->prepare("INSERT INTO Role (nomRole) VALUES(:nomRole)");//ajoute le Role saisie dans le form
+                $requetAjouterRole->execute(["nomRole"=> $nomRole]);
+                header('Location:index.php?action=listRoles');
+            
+            }else{
+                echo " Veuillez remplir le champs";
+            }
+        }
+
+        require "view/form/RoleForm.php";
+    }  
 }
