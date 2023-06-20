@@ -36,6 +36,9 @@ if(isset($_GET['action'])){
         case "detailActeur": $ActeurCtrl->detailActeur($id); 
             break;
 
+        case "formActeur":$ActeurCtrl->formAjoutActeur();
+           break;
+
     //Realisateur
         case "listRealisateurs": $RealisteurCtrl->listRealisateurs();
             break;

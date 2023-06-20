@@ -37,5 +37,37 @@ class ActeurController{
         $requeteFilmo->execute(["id"=>$id]);
         require "view/detail/ActeurDetail.php";
     }
+
+     public function formAjoutActeur(){
+        $pdo = Connect:: seConnecter();
+      
+        if(isset($_POST["submit"])){//verifie si champ et remplie
+            $nom = filter_input(INPUT_POST, "nom", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $prenom = filter_input(INPUT_POST, "prenom", FILTER_SANITIZE_FULL_SPECIAL_CHARS);//verifie si il n'y a pas de caracthére spe
+            $sexe = filter_input(INPUT_POST,"sexe",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+            $DateNaissance = filter_input(INPUT_POST,"DateNaissance",FILTER_SANITIZE_NUMBER_INT);
+                //var_dump("ok");die;
+            
+            if($nom && $prenom && $sexe && $DateNaissance){
+                $requetAjouterPersonne = $pdo->prepare("INSERT INTO Personne ('nom','prenom','sexe','DateNaissance' ) VALUES(:nom, :prenom, :sexe, :DateNaissance)");//ajoute le Personne saisie dans le form
+                $requetAjouterPersonne->execute([
+                    "nom"=> $nom,
+                    "prenom"=> $prenom,
+                    "sexe"=> $sexe,
+                    "Datenaissance"=> $DateNaissance
+                ]);
+                $idActeur = $pdo->prepare(" INSERT INTO Acteur (id_acteur)");
+                $idActeur->execute();
+                $id = $pdo->lastInsertId();
+                
+                header('Location:index.php?action=listActeur');
+            
+            }else{
+                echo " Veuillez remplir le champs";
+            }
+        }
+
+        require "view/form/ActeurForm.php";
+    }   
     };
     

@@ -26,6 +26,8 @@ ob_start();
         }
         ?>
     </table>
+    <button><a href="index.php?action=formActeur">Ajouter Acteur</a></button>
+
 
 
     <?php
