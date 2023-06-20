@@ -6,54 +6,67 @@ use Controller\GenreController;
 use Controller\RealisateurController;
 use Controller\RoleController;
 
-
-spl_autoload_register(function($class_name){
-    include $class_name .'.php';
-    echo $class_name;
-
+spl_autoload_register(function ($class_name) {
+    require $class_name . '.php';
 });
+
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 
-$ctrlCinema = new CinemaController();
+$ActeurCtrl = new ActeurController();
+$FilmCtrl = new FilmController();
+$RealisteurCtrl = new RealisateurController();
+$GenreCtrl = new GenreController();
+$RoleCtrl = new RoleController();
+
+
 if(isset($_GET['action'])){
     switch ($_GET['action']){
-        case "listFilms": $ctrlCinema->listFilms();
+
+    //FILM
+        case "listFilms": $FilmCtrl->listFilms();
             break;
 
-        case "listActeurs": $ctrlCinema->listActeurs();
+        case "detailFilm": $FilmCtrl->detailFilm($id);    
+            break;
+    //Acteur
+        case "listActeurs": $ActeurCtrl->listActeurs();
             break;
 
-        case "listRealisateurs": $ctrlCinema->listRealisateurs();
+        case "detailActeur": $ActeurCtrl->detailActeur($id); 
             break;
 
-        case "listGenres": $ctrlCinema->listGenres();
+    //Realisateur
+        case "listRealisateurs": $RealisteurCtrl->listRealisateurs();
             break;
 
-        case "listRoles": $ctrlCinema->listRoles();
+        case "detailRealisateur": $RealisteurCtrl->detailRealisateur($id); 
             break;
 
-        case "detailFilm": $ctrlCinema->detailFilm($id);    
+    //Genre
+        case "listGenres":$GenreCtrl->listGenres();
             break;
 
-        case "detailActeur": $ctrlCinema->detailActeur($id); 
+        case "detailGenre":$GenreCtrl->detailGenre($id); 
             break;
 
-        case "detailRealisateur": $ctrlCinema->detailRealisateur($id); 
-            break;
-
-        case "detailGenre": $ctrlCinema->detailGenre($id); 
-            break;
-
-        case "detailRole": $ctrlCinema->detailRole($id); 
-            break;
-            
-        case "formGenre": $ctrlCinema->formGenre();
+        case "formGenre": $GenreCtrl->formGenre();
             break;
     
+    //Role
+        case "listRoles": $RoleCtrl->listRoles();
+            break;
+
+        case "detailRole": $RoleCtrl->detailRole($id); 
+            break;
+
+
+
+
+            
 
     }       
 }
 
 else{
-    $ctrlCinema->listFilms();
+    $FilmCtrl->listFilms();
 }

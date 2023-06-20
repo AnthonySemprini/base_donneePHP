@@ -4,7 +4,7 @@ namespace Controller;
 use Model\Connect;
 
 
-class FilmsController{
+class FilmController{
 
     public function listFilms(){
 
@@ -14,7 +14,7 @@ class FilmsController{
             ORDER BY anneeSortie DESC
         ");
 
-        require "view/list/listFilms.php";
+        require "view/list/FilmsList.php";
     }
 
     public function detailFilm($id){

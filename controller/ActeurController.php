@@ -17,7 +17,7 @@ class ActeurController{
             ORDER BY p.nom, p.prenom
         ");
 
-        require "view/list/listActeurs.php";
+        require "view/list/ActeursList.php";
     }
 
     public function detailActeur($id){
