@@ -1,7 +1,12 @@
 <?php
 
-use Controller\CinemaController;
-include "controller/CinemaController.php";
+use Controller\ActeurController;
+use Controller\FilmController;
+use Controller\GenreController;
+use Controller\RealisateurController;
+use Controller\RoleController;
+
+
 spl_autoload_register(function($class_name){
     include $class_name .'.php';
     echo $class_name;

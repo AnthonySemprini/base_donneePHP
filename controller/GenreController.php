@@ -1,10 +1,10 @@
- <?php
+<?php
 
 namespace Controller;
 use Model\Connect;
-include "model/model.php";
 
-class CinemaController{
+
+class GenreController{
 
 // GENRE
 
