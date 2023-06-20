@@ -17,7 +17,7 @@ class RealisateurController{
             ORDER BY p.nom, p.prenom
         ");
 
-        require "view/list/listRealisateurs.php";
+        require "view/list/RealisateursList.php";
     }
 
     public function detailrealisateur($id){
@@ -35,6 +35,6 @@ class RealisateurController{
         WHERE id_realisateur = :id");
         $requeteFilmoReal->execute(["id"=>$id]);
 
-        require "view/detail/detailrealisateur.php";
+        require "view/detail/RealisateurDetail.php";
     }
 }

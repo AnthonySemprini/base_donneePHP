@@ -37,7 +37,7 @@ class FilmsController{
         $requeteCasting->execute(["id"=>$id]);
         
 
-        require "view/detail/detailFilm.php";
+        require "view/detail/FilmDetail.php";
     }
 
 }

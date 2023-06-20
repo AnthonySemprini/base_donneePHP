@@ -35,7 +35,7 @@ class ActeurController{
         WHERE id_acteur = :id");
 
         $requeteFilmo->execute(["id"=>$id]);
-        require "view/detail/detailActeur.php";
+        require "view/detail/ActeurDetail.php";
     }
     };
     

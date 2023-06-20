@@ -16,7 +16,7 @@ class GenreController{
             ORDER BY g.nomGenre
         ");
 
-        require "view/list/listGenres.php";
+        require "view/list/GenresList.php";
     }
 
     public function detailGenre($id){
@@ -30,10 +30,10 @@ class GenreController{
         ");
         $requeteGenre->execute(["id"=>$id]);
 
-        require "view/detail/detailGenre.php";
+        require "view/detail/GenreDetail.php";
     }
     public function formGenre(){
-        require "view/form/formGenre.php";
+        require "view/form/GenreForm.php";
      }
 
     public function formAjoutGenre($nomGenre){

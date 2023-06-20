@@ -17,7 +17,7 @@ class RoleController{
             ORDER BY ro.nomRole
         ");
 
-        require "view/list/listRoles.php";
+        require "view/list/RolesList.php";
     }
 
     public function detailRole($id){
@@ -35,6 +35,6 @@ class RoleController{
         ");
         $requeteRole->execute(["id"=>$id]);
 
-        require "view/detail/detailRole.php";
+        require "view/detail/RoleDetail.php";
     }
 }
