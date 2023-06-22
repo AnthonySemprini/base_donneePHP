@@ -5,10 +5,10 @@ ob_start();
 
 <form method="POST" action="index.php?action=formActeur" >
     <p>Nom</p>
-    <input type="text" name="nomActeur">
+    <input type="text" name="nom">
     <br>
     <p>Prenom</p>
-    <input type="text" name="prenomActeur">
+    <input type="text" name="prenom">
     <br>
     <p>Sexe</p>
     <select name="sexe" id="sexeSelect">
@@ -17,7 +17,7 @@ ob_start();
         <option value="Femme">Femme</option>
     </select>
     <P>Date de naissance</P>
-    <input type="date" name="dateAnnivActeur">
+    <input type="date" name="DateNaissance">
     <br>
     <br>
     <input type="submit" name="submit">
