@@ -38,7 +38,7 @@ class ActeurController{
         require "view/detail/ActeurDetail.php";
     }
 
-     public function formAjoutActeur(){
+    public function formAjoutActeur(){
         $pdo = Connect:: seConnecter();
       
         if(isset($_POST["submit"])){//verifie si champ et remplie

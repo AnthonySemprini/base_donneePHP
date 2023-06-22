@@ -14,7 +14,7 @@ $id = (isset($_GET["id"])) ? $_GET["id"] : null;
 
 $ActeurCtrl = new ActeurController();
 $FilmCtrl = new FilmController();
-$RealisteurCtrl = new RealisateurController();
+$RealisateurCtrl = new RealisateurController();
 $GenreCtrl = new GenreController();
 $RoleCtrl = new RoleController();
 
@@ -36,15 +36,17 @@ if(isset($_GET['action'])){
         case "detailActeur": $ActeurCtrl->detailActeur($id); 
             break;
 
-        case "formActeur":$ActeurCtrl->formAjoutActeur();
+        case "formActeur": $ActeurCtrl->formAjoutActeur();
            break;
 
     //Realisateur
-        case "listRealisateurs": $RealisteurCtrl->listRealisateurs();
+        case "listRealisateurs": $RealisateurCtrl->listRealisateurs();
             break;
 
-        case "detailRealisateur": $RealisteurCtrl->detailRealisateur($id); 
+        case "detailRealisateur": $RealisateurCtrl->detailRealisateur($id); 
             break;
+        case "formRealisateur": $RealisateurCtrl->formAjoutRealisateur();
+           break;
 
     //Genre
         case "listGenres":$GenreCtrl->listGenres();

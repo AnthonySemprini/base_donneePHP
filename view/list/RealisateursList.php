@@ -26,7 +26,7 @@ ob_start();
         }
         ?>
     </table>
-
+    <button><a href="index.php?action=formRealisateur">Ajouter Realisateur</a></button>
 
     <?php
 $content = ob_get_clean();
