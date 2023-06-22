@@ -27,6 +27,7 @@ ob_start();
         }
         ?>
     </table>
+    <button><a href="index.php?action=formFilm">Ajouter Film</a></button>
 
 
     <?php
