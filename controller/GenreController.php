@@ -21,20 +21,27 @@ class GenreController{
 
     public function detailGenre($id){
         $pdo = Connect:: seConnecter();
+        
+        $genre = $pdo->prepare("SELECT *
+        FROM genre g
+        WHERE g.id_genre = :id
+        ");
+
+        $genre->execute(["id" => $id]);
+
         $requeteGenre = $pdo->prepare("SELECT *
         FROM genre g
         INNER JOIN classer c ON g.id_genre = c.id_genre
         INNER JOIN film f ON c.id_film = f.id_film
         WHERE g.id_genre = :id
-       
-        ");
-        $requeteGenre->execute(["id"=>$id]);
+       ");
 
+        $requeteGenre->execute(["id"=>$id]);
+       
         require "view/detail/GenreDetail.php";
     }
-    public function formGenre(){
-        
-     }
+   
+   
 
     public function formAjoutGenre(){
         $pdo = Connect:: seConnecter();

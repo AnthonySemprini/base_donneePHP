@@ -67,7 +67,7 @@ class ActeurController{
                 header('Location:index.php?action=listActeurs');
             
             }else{
-                echo " Veuillez remplir le champs";
+                echo " Veuillez remplir les champs";
             }
         }
 

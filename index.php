@@ -28,6 +28,8 @@ if(isset($_GET['action'])){
 
         case "detailFilm": $FilmCtrl->detailFilm($id);    
             break;
+            case "formCasting": $CastingCtrl->formAjoutCasting();
+           break;
 
     //Acteur
         case "listActeurs": $ActeurCtrl->listActeurs();
