@@ -20,7 +20,7 @@
             <a href="index.php?action=listRealisateurs">Réalisateur</a>
             <a href="index.php?action=listGenres">Genre</a>
             <a href="index.php?action=listRoles">Role</a>
-            <a href="index.php?action=CastingFilm">Casting</a>
+            <a href="index.php?action=formCasting">Casting</a>
         </nav>
     </header>
     <div id="wrapper">

@@ -4,34 +4,36 @@ namespace Controller;
 use Model\Connect;
 
 
-class ActeurController{
+class CastingController{
 
 
 public function formSelectCasting(){
- $pdo = Connect:: seConnecter();
+    $pdo = Connect:: seConnecter();
 
- if(isset($_POST["submit"])){//verifie si champ et remplie
-            $acteur = filter_input(INPUT_POST, "acteur", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-            $film = filter_input(INPUT_POST, "film", FILTER_SANITIZE_FULL_SPECIAL_CHARS);//verifie si il n'y a pas de caracthére spe
-            $role = filter_input(INPUT_POST,"role",FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    
-    if($acteur && $film && $role){
-        $requeteSelectCasting =$pdo->prepare("INSERT INTO casting (acteur, film, role) 
-        VALUES (:acteur,:film,:role)");
+    $requetActeur = $pdo->prepare("SELECT a.id_acteur, p.prenom, p.nom
+    FROM  acteur a 
+    INNER JOIN personne p ON p.id_personne = a.id_personne");
 
-    $requeteSelectCasting->execute([
-        "acteur" => $acteur,
-        "film"=>$film,
-        "role"=> $role
-    ]);
+    $requetActeur->execute();
+ 
+    $requetFilm = $pdo->prepare("SELECT id_film, titre
+    FROM film f");
 
-    header('Location:index.php?action=listFilms');
+    $requetFilm->execute();
 
+    $requetRole = $pdo->prepare("SELECT id_role, nomRole
+    FROM role r") ;
+    $requetRole->execute();
 
-    
-    }else{
-    echo "Veuillez remplir les champs";
-    }    
- }      
+    //var_dump($requetRole->fetchAll());die;
+
+    require "view/form/CastingForm.php";     
 }
-};
+
+
+public function ajoutCasting(){
+    $pdo = Connect:: seConnecter();
+    if(isset)
+}
+
+}
