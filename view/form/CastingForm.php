@@ -11,7 +11,7 @@ ob_start();
         <?php
         foreach($requetActeur as $acteur){
         ?>
-            <option value="<?= $acteur['id_acteur']?>"><?= $acteur['prenom']." ".$acteur['nom'] ?></option>
+            <option value="<?= $acteur['id_acteur']?>"><?= $acteur['affiche_nom'] ?></option>
             <?php
             }
         ?>
