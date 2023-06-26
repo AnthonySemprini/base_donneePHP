@@ -1,23 +1,24 @@
 <?php
 ob_start();
-?>
+        $requeteRole= $requeteRole->fetchAll();
 
-<?php
+$role = $role->fetch()['nomRole'];
+if(!empty($requeteRole)){
+     
+  $roles = $requeteRole; //var_dump($Roles);
 
-$roles = $requeteRole->fetchAll();
-?>
-    <p>est joué par : </p>
-<?php
-    foreach($roles as $role){
-        ?>
-
-       <p><a href='index.php?action=detailActeur&id=<?= $role['id_acteur'];?>'><?= $role['nom'];?></a> dans 
-       <a href='index.php?action=detailFilm&id=<?= $role['id_film']; ?>'><?= $role['titre']; ?></a></p><br>
-
-  <?php  }
+      foreach($roles as $film){
+          ?>
+      <a href='index.php?action=detailFilm&id=<?= $film['id_film']; ?>'><?= $film['titre']; ?></a><br>
+    <?php 
+   }
+    
+    }else{
+   echo "Le Role n'a aucun film attribué.";
+   }
 
 $content = ob_get_clean();
-$titre = $role['nomRole'];
-$titre_secondaire = $role['nomRole'];
+$titre = $role;
+$titre_secondaire = "Les films attribué au de Role : ".$role;
 require "view/template.php";
 ?>
