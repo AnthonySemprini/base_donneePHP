@@ -22,6 +22,7 @@ ob_start();
         foreach($requetFilm as $film){
         ?>
             <option value="<?= $film['id_film']?>"><?= $film['titre']?></option>
+            
             <?php
             }
         ?>

@@ -7,8 +7,9 @@ use Controller\RealisateurController;
 use Controller\RoleController;
 use Controller\CastingController;
 
-spl_autoload_register(function ($class_name) {
-    require $class_name . '.php';
+
+spl_autoload_register(function ($_className) {
+    require str_replace("\\","/",$_className).".php";
 });
 
 $id = (isset($_GET["id"])) ? $_GET["id"] : null;

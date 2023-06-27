@@ -34,21 +34,20 @@ class CastingController{
     public function ajoutCasting(){
         $pdo = Connect:: seConnecter();
         if(isset($_POST["submit"])){
-            var_dump();die;
             
-            $role = filter_input(INPUT_POST,"nomRole",FILTER_SANITIZE_NUMBER_INT);
-            $film = filter_input(INPUT_POST,"titre",FILTER_SANITIZE_NUMBER_INT);
-            $acteur = filter_input(INPUT_POST,"affiche_nom",FILTER_SANITIZE_NUMBER_INT);
+            $role = filter_input(INPUT_POST,"id_role",FILTER_SANITIZE_NUMBER_INT);
+            $film = filter_input(INPUT_POST,"id_film",FILTER_SANITIZE_NUMBER_INT);
+            $acteur = filter_input(INPUT_POST,"id_acteur",FILTER_SANITIZE_NUMBER_INT);
             
             if($role && $film && $acteur){
-                $requetAjoutCast = $pdo->prepare("INSERT INTO casting (nomRole, titre, affiche_nom) 
-                VALUES(:nomRole, :titre, :affiche_nom");
+                $requetAjoutCast = $pdo->prepare("INSERT INTO casting  
+                VALUES(:id_role, :id_film, :id_acteur");
 
-                $requetAjoutCast->execute([
-                    "nomRole" => $role,
-                    "titre" => $film,
-                    "affiche_nom" =>$acteur
-                ]);
+$requetAjoutCast->execute([
+    "id_role" => $role,
+    "id_film" => $film,
+    "id_acteur" =>$acteur
+]);
                 
             }
         }
