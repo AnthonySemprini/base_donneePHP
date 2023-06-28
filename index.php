@@ -34,9 +34,9 @@ if(isset($_GET['action'])){
     // CASTING
         case "formCasting": $CastingCtrl->formSelectCasting();
         break;
-        case "formSelectCasting": $CastingCtrl->formSelectCasting();
-        break;
-        case "ajoutCasting": $CastingCtrl->ajoutCasting();
+       // case "formSelectCasting": $CastingCtrl->formSelectCasting();
+        //break;
+        case "ajoutCasting": $CastingCtrl->ajoutCasting($role, $film, $acteur);
         break;
 
     //Acteur

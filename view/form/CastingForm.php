@@ -3,10 +3,10 @@ ob_start();
 ?>
 
 
-<form method="POST" action="index.php?action=formCasting" >
+<form method="POST" action="index.php?action=ajoutCasting" >
     
     
-    <select name="casting" id="acteur">
+    <select name="castingActeur" id="castingActeur">
         <option value="">Selectionner un acteur...</option>
         <?php
         foreach($requetActeur as $acteur){
@@ -16,18 +16,18 @@ ob_start();
             }
         ?>
     </select>
-    <select name="casting" id="film">
+    <select name="castingFilm" id="castingFilm">
         <option value="">Selectionner un film...</option>
         <?php
         foreach($requetFilm as $film){
         ?>
             <option value="<?= $film['id_film']?>"><?= $film['titre']?></option>
-            
+
             <?php
             }
         ?>
     </select>
-    <select name="casting" id="role">
+    <select name="castingRole" id="castingRole">
         <option value="">Selectionner un role...</option>
         <?php
         foreach($requetRole as $role){
