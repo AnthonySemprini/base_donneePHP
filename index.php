@@ -31,6 +31,11 @@ if(isset($_GET['action'])){
 
         case "detailFilm": $FilmCtrl->detailFilm($id);    
             break;
+
+        case "ajoutFilm": $FilmCtrl->ajoutFilm();
+        break;
+
+        
     // CASTING
         case "formCasting": $CastingCtrl->formSelectCasting();
         break;

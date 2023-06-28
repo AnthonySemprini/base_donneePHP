@@ -40,4 +40,15 @@ class FilmController{
         require "view/detail/FilmDetail.php";
     }
 
+    public function ajoutFilm(){
+        $pdo = Connect:: seConnecter();
+
+        if(isset($_POST["submit"])){//verifie qu'il y est qq chose dans le champ
+            
+            $titre = filter_input(INPUT_POST,"titre",FILTER_SANITIZE_SPECIAL_CHARS);//empeche de rentre autre chose que des int
+            $note = filter_input(INPUT_POST,"note",FILTER_SANITIZE_SPECIAL_CHARS);
+            $date = filter_input(INPUT_POST,"date",FILTER_SANITIZE_SPECIAL_CHARS);
+
+        require "view/form/FilmForm.php";
+    }
 }
