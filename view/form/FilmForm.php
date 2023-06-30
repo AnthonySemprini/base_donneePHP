@@ -25,7 +25,8 @@ ob_start();
 
                     <!--Upload img-->
     <p>Affiche</p>
-    <input type="file" name="img" id="img">
+    <label for="file"></label>
+    <input type="file" name="affiche" id="affiche">
     <br>
                     <!--Synopsis-->
 
@@ -42,11 +43,23 @@ ob_start();
     <input type="text" name="duree" id="duree">
     <br>
     <br>
+        <!--Genre-->
+
+        <p>Genre</p>
+                    <?php
+    foreach( $requetGenre as $genre){
+        ?>
+        <input type="checkbox" name="genres[]" value="<?= $genre['id_genre'] ?>"><label ><?= $genre['nomGenre']?></label>
+        <?php
+       //var_dump($genre);die;
+    }
+    ?>
+
 
                     <!--Realisateur-->
 
                     <p>Réalisteur</p>
-    <select name="filmRealisateur" id="filmRealisateur" >
+    <select name="realisateur" id="realisateur" >
         <option value="">Selectionner un Realisateur...</option>
         <?php
         foreach($requetRealisateur as $Realisateur){
