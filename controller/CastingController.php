@@ -23,8 +23,8 @@ class CastingController{
         FROM role r") ;
         $requetRole->execute();
         
-        //var_dump($requetRole->fetchAll());die;
         //var_dump($requetRole);die;
+        //var_dump($requetFilm->fetchAll());die;
         
         require "view/form/CastingForm.php";     
 
@@ -36,14 +36,14 @@ class CastingController{
         
         if(isset($_POST["submit"])){//verifie qu'il y est qq chose dans le champ
             
-                 $role = filter_input(INPUT_POST,"castingRole",FILTER_SANITIZE_NUMBER_INT);//empeche de rentre autre chose que des int
-                 $film = filter_input(INPUT_POST,"castingFilm",FILTER_SANITIZE_NUMBER_INT);
-                 $acteur = filter_input(INPUT_POST,"castingActeur",FILTER_SANITIZE_NUMBER_INT);
+                $role = filter_input(INPUT_POST,"castingRole",FILTER_SANITIZE_NUMBER_INT);//empeche de rentre autre chose que des int
+                $film = filter_input(INPUT_POST,"castingFilm",FILTER_SANITIZE_NUMBER_INT);
+                $acteur = filter_input(INPUT_POST,"castingActeur",FILTER_SANITIZE_NUMBER_INT);
                 //var_dump($role);die;
-                 if($role && $film && $acteur){
+                if($role && $film && $acteur){
                 $requetAjoutCast = $pdo->prepare("INSERT INTO casting (id_role,id_film,id_acteur) 
                 VALUES(:castingRole, :castingFilm, :castingActeur)");
-                //var_dump($requetAjoutCast);die;
+                //var_dump($requetAjoutCast->fetchAll());die;
                 $requetAjoutCast->execute([
                     "castingRole" => $role,
                     "castingFilm" => $film,

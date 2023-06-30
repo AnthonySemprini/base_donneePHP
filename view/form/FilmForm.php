@@ -8,20 +8,19 @@ ob_start();
                     <!--Titre-->
 
     <p>Titre</p>
-    <input type="text" name="titre">
+    <input type="text" name="titre" id="titre">
     <br>
 
                     <!--Note-->
 
     <p>Note</p>
-    <input type="text" name="note">
+    <input type="text" name="note" id="note">
     <br>
 
-                    <!--Date-->
+                    <!--annee sortie-->
 
-    <p>Date</p>
-    <input type="date">
-    <br>
+    <p>Annee de sortie</p>
+    <input type="text" name="anneeSortie" id="anneesortie">
     <br>
 
                     <!--Upload img-->
@@ -31,66 +30,36 @@ ob_start();
                     <!--Synopsis-->
 
     <p>Synopsis</p>
-    <input type="textarea" name="description">
+    <input type="textarea" name="synopsis" id="synopsis">
     <br>
 
-                    <!--Genre-->
-
-    <p>Genre</p>
-    <input type="checkbox" id="checkboxGenre">
-    <label for="checkboxGenre">sf</label>
+ 
     <br>
 
                     <!--Durée-->
 
     <p>Durée</p>
-    <input type="text" name="duree">
+    <input type="text" name="duree" id="duree">
     <br>
     <br>
 
                     <!--Realisateur-->
 
-    <select name="FilmRealisateur" id="FilmRealisateur">
+                    <p>Réalisteur</p>
+    <select name="filmRealisateur" id="filmRealisateur" >
         <option value="">Selectionner un Realisateur...</option>
         <?php
         foreach($requetRealisateur as $Realisateur){
-        ?>
-            <option value="<?= $Realisateur['id_Realisateur']?>"><?= $Realisateur['affiche_nom'] ?></option>
+            //var_dump($requetRealisateur);die;
+            ?>
+            <option value="<?= $Realisateur['id_realisateur']?>"><?= $Realisateur['affiche_nom'] ?></option>
             <?php
             }
         ?>
     </select>
     <br>
-
-                    <!--Acteur-->
-
-    <select name="FilmActeur" id="FilmActeur">
-        <option value="">Selectionner un Acteur...</option>
-        <?php
-        foreach($requetActeur as $acteur){
-        ?>
-            <option value="<?= $acteur['id_acteur']?>"><?= $acteur['titre']?></option>
-
-            <?php
-            }
-        ?>
-    </select>
     <br>
-
-                    <!--role-->
-
-    <select name="FilmRole" id="FilmRole">
-        <option value="">Selectionner un role...</option>
-        <?php
-        foreach($requetRole as $role){
-        ?>
-            <option value="<?= $role['id_role']?>"><?= $role['nomRole'] ?></option>
-            <?php
-            }
-        ?>
-    </select>
-    <br>
-
+    
                     <!--Boutton envoyer-->
 
     <input type="submit" name="submit">

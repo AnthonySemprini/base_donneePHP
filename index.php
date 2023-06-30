@@ -32,15 +32,17 @@ if(isset($_GET['action'])){
         case "detailFilm": $FilmCtrl->detailFilm($id);    
             break;
 
-        case "ajoutFilm": $FilmCtrl->ajoutFilm();
-        break;
+            
+            // case "ajoutFilm": $FilmCtrl->formSelectFilm();
+            // break;
 
-        
+            case "ajoutFilm": $FilmCtrl->ajoutFilm();
+                break;
+
     // CASTING
         case "formCasting": $CastingCtrl->formSelectCasting();
-        break;
-       // case "formSelectCasting": $CastingCtrl->formSelectCasting();
-        //break;
+            break;
+        
         case "ajoutCasting": $CastingCtrl->ajoutCasting($role, $film, $acteur);
         break;
 
@@ -52,7 +54,7 @@ if(isset($_GET['action'])){
             break;
 
         case "formActeur": $ActeurCtrl->formAjoutActeur();
-           break;
+            break;
 
     //Realisateur
         case "listRealisateurs": $RealisateurCtrl->listRealisateurs();
@@ -61,7 +63,7 @@ if(isset($_GET['action'])){
         case "detailRealisateur": $RealisateurCtrl->detailRealisateur($id); 
             break;
         case "formRealisateur": $RealisateurCtrl->formAjoutRealisateur();
-           break;
+            break;
 
     //Genre
         case "listGenres":$GenreCtrl->listGenres();
@@ -71,7 +73,7 @@ if(isset($_GET['action'])){
             break;
 
         case "formGenre":$GenreCtrl->formAjoutGenre();
-           break;
+            break;
     
     //Role
         case "listRoles": $RoleCtrl->listRoles();
@@ -81,7 +83,7 @@ if(isset($_GET['action'])){
             break;
 
         case "formRole":$RoleCtrl->formAjoutRole();
-           break;
+            break;
     }   
 
 }
